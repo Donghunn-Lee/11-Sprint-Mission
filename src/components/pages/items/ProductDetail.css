@@ -1,8 +1,9 @@
 .product-detail-container {
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
-  gap: 62px;
-  margin: 24px 360px;
+  gap: 40px;
+  margin: 24px auto;
   align-items: center;
 }
 
@@ -10,13 +11,14 @@
   width: 100%;
   max-width: 1200px;
   display: flex;
-  gap: 40px;
+  gap: 24px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--gray-200);
 }
 
 .product-detail-image {
-  width: 100%;
+  width: 496px;
   height: auto;
-  max-width: 486px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
@@ -29,7 +31,6 @@
   display: flex;
   flex-direction: column;
   gap: 62px;
-  /* white-space: nowrap; */
 }
 
 .product-detail-info {
@@ -37,6 +38,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .product-detail-info-title {
@@ -145,4 +147,58 @@
 .seller-favorite-count {
   font-weight: 500;
   color: var(--gray-500);
+}
+
+.product-detail-comments-container {
+  width: 100%;
+}
+
+.create-question {
+  width: 100%;
+}
+
+.create-question-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  gap: 12px;
+}
+
+.create-question-label {
+  font-size: 16px;
+  column-rule: var(--gray-900);
+  align-self: flex-start;
+  font-weight: 600;
+}
+
+.create-question-textarea {
+  height: 104px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray-100);
+  outline: none;
+  resize: none;
+}
+
+.create-question-textarea:focus{
+  outline: 1px solid var(--gray-400);
+}
+
+.create-question-textarea::placeholder {
+  color: var(--gray-400);
+  font-family: 'Pretendard';
+  resize: none;
+}
+
+.create-question-btn{
+  width: 74px;
+  height: 42px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: var(--gray-400);
+  border: none;
+  color: white;
+  align-self: end;
 }
