@@ -88,8 +88,10 @@
   font-weight: 600;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .comment-edit-complete-btn:disabled {
   background-color: var(--gray-400);
+  cursor: default;
 }

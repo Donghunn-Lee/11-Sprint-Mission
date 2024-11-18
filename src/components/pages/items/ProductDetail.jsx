@@ -179,6 +179,10 @@ function ProductDetail() {
             })}
           </div>
         </div>
+        <Link className='back-button' to='/items'>
+          목록으로 돌아가기
+          <img src="/images/icons/ic_back.svg" alt="목록 돌아가기 버튼" />
+        </Link>
       </main>
     </>
   );

@@ -209,3 +209,16 @@
   flex-direction: column;
   gap: 30px;
 }
+
+.back-button {
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 48px;
+  padding: 12px 64px;
+  background-color: var(--blue-500);
+  color: white;
+  border-radius: 40px;
+  margin-bottom: 100px;
+  text-decoration: none;
+}
