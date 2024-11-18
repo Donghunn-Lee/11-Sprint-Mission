@@ -5,6 +5,7 @@ import { getProductById } from '../../../api/productsApi';
 import './ProductDetail.css';
 import AddItemTag from '../additem/AddItemTag';
 import { getCommentsByProductId } from '../../../api/commentsApi';
+import CommentBox from './CommentBox';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -16,11 +17,12 @@ function ProductDetail() {
     try {
       const data = await getCommentsByProductId(id);
       setComments(data);
+      console.log(data);
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
   }, [id]);
-  
+
   useEffect(() => {
     async function fetchProduct() {
       try {
@@ -32,7 +34,7 @@ function ProductDetail() {
         setLoading(false);
       }
     }
-  
+
     fetchProduct();
     fetchComments();
   }, [id, fetchComments]);
@@ -150,6 +152,11 @@ function ProductDetail() {
               />
               <button className='create-question-btn'>등록</button>
             </form>
+          </div>
+          <div className='product-detial-comments'>
+            {comments.map((comment) => {
+              return <CommentBox key={comment.id} comment={comment} />;
+            })}
           </div>
         </div>
       </main>

@@ -16,7 +16,7 @@ export async function getCommentsByProductId(id, limit = 10) {
       headers: DEFAULT_HEADERS,
       params: params,
     });
-    return response.data;
+    return response.data.list;
   } catch (error) {
     console.error('Error fetching products:', error);
   }

@@ -182,7 +182,7 @@
   resize: none;
 }
 
-.create-question-textarea:focus{
+.create-question-textarea:focus {
   outline: 1px solid var(--gray-400);
 }
 
@@ -192,7 +192,7 @@
   resize: none;
 }
 
-.create-question-btn{
+.create-question-btn {
   width: 74px;
   height: 42px;
   padding: 12px 24px;
@@ -201,4 +201,10 @@
   border: none;
   color: white;
   align-self: end;
+}
+
+.product-detial-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
