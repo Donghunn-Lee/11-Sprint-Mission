@@ -197,10 +197,16 @@
   height: 42px;
   padding: 12px 24px;
   border-radius: 8px;
-  background-color: var(--gray-400);
+  background-color: var(--blue-500);
   border: none;
   color: white;
   align-self: end;
+  cursor: pointer;
+}
+
+.create-question-btn:disabled {
+  background-color: var(--gray-400);
+  cursor:default;
 }
 
 .product-detial-comments {

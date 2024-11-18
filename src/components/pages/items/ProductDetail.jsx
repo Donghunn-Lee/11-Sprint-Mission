@@ -5,6 +5,7 @@ import { getProductById } from '../../../api/productsApi';
 import './ProductDetail.css';
 import AddItemTag from '../additem/AddItemTag';
 import {
+  createComment,
   deleteCommentById,
   getCommentsByProductId,
 } from '../../../api/commentsApi';
@@ -15,6 +16,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
+  const [newCommentInput, setNewCommentInput] = useState('');
 
   const fetchComments = useCallback(async () => {
     try {
@@ -60,6 +62,14 @@ function ProductDetail() {
   if (!product) {
     return <p>상품을 찾을 수 없습니다.</p>;
   }
+
+  const handleCreateComment = () => {
+    try {
+      createComment(id, newCommentInput);
+    } catch (error) {
+      console.log(error.massage);
+    }
+  };
 
   const getFormattedDate = (isoString) => {
     const date = new Date(isoString);
@@ -163,8 +173,16 @@ function ProductDetail() {
                 className='create-question-textarea'
                 type='text'
                 placeholder='개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다.'
+                value={newCommentInput}
+                onChange={(e) => setNewCommentInput(e.target.value)}
               />
-              <button className='create-question-btn'>등록</button>
+              <button
+                className='create-question-btn'
+                disabled={newCommentInput ? false : true}
+                onClick={handleCreateComment}
+              >
+                등록
+              </button>
             </form>
           </div>
           <div className='product-detial-comments'>
@@ -181,7 +199,7 @@ function ProductDetail() {
         </div>
         <Link className='back-button' to='/items'>
           목록으로 돌아가기
-          <img src="/images/icons/ic_back.svg" alt="목록 돌아가기 버튼" />
+          <img src='/images/icons/ic_back.svg' alt='목록 돌아가기 버튼' />
         </Link>
       </main>
     </>
