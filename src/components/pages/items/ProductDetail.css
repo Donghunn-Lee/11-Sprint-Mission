@@ -161,7 +161,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 140px;
+  height: 200px;
   gap: 12px;
 }
 
@@ -204,7 +204,8 @@
 }
 
 .product-detial-comments {
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 30px;
 }

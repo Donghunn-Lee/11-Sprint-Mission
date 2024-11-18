@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './KebabMenu.css';
 
-const KebabMenu = ({ onEdit, onDelete }) => {
+const KebabMenu = ({ openEdit, onDelete, id }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -17,7 +17,7 @@ const KebabMenu = ({ onEdit, onDelete }) => {
           <li
             className='kebab-dropdown-option option-top'
             onClick={() => {
-              onEdit();
+              openEdit();
               setIsOpen(false);
             }}
           >
@@ -26,7 +26,7 @@ const KebabMenu = ({ onEdit, onDelete }) => {
           <li
             className='kebab-dropdown-option option-bottom'
             onClick={() => {
-              onDelete();
+              onDelete(id);
               setIsOpen(false);
             }}
           >

@@ -4,7 +4,10 @@ import { useEffect, useState, useCallback } from 'react';
 import { getProductById } from '../../../api/productsApi';
 import './ProductDetail.css';
 import AddItemTag from '../additem/AddItemTag';
-import { getCommentsByProductId } from '../../../api/commentsApi';
+import {
+  deleteCommentById,
+  getCommentsByProductId,
+} from '../../../api/commentsApi';
 import CommentBox from './CommentBox';
 
 function ProductDetail() {
@@ -38,6 +41,17 @@ function ProductDetail() {
     fetchProduct();
     fetchComments();
   }, [id, fetchComments]);
+
+  const handleDelete = async (commentId) => {
+    const success = await deleteCommentById(commentId);
+    if (success) {
+      setComments((prevComments) =>
+        prevComments.filter((comment) => comment.id !== commentId)
+      );
+    } else {
+      console.error('댓글 삭제에 실패했습니다.');
+    }
+  };
 
   if (loading) {
     return <p>상품을 불러오는 중입니다...</p>;
@@ -155,7 +169,13 @@ function ProductDetail() {
           </div>
           <div className='product-detial-comments'>
             {comments.map((comment) => {
-              return <CommentBox key={comment.id} comment={comment} />;
+              return (
+                <CommentBox
+                  key={comment.id}
+                  comment={comment}
+                  onDelete={handleDelete}
+                />
+              );
             })}
           </div>
         </div>
