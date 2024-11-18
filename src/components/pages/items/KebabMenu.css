@@ -1,0 +1,38 @@
+.comment-kebab-container {
+  position: relative;
+}
+
+.kebab-btn {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: white;
+  border: none;
+  color: var(--gray-400);
+  cursor: pointer;
+}
+
+.kebab-dropdown {
+  background-color: white;
+  position: absolute;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  top: 32px;
+  left: -114px;
+}
+
+.kebab-dropdown-option {
+  font-size: 16px;
+  color: var(--gray-500);
+  cursor: pointer;
+}
+
+.option-top {
+  padding: 20px 40px 12px;
+}
+
+.option-bottom {
+  padding: 12px 40px 20px;
+}
