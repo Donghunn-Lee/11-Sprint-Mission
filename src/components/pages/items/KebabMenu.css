@@ -36,3 +36,18 @@
 .option-bottom {
   padding: 12px 40px 20px;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .kebab-dropdown-option {
+    font-size: 14px;
+  }
+
+  .option-top {
+    padding: 16px 28px 12px;
+  }
+  
+  .option-bottom {
+    padding: 12px 28px 16px;
+  }
+}
