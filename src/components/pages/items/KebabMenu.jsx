@@ -3,8 +3,17 @@ import './KebabMenu.css';
 
 const KebabMenu = ({ openEdit, onDelete, id }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    if (!isOpen) {
+      setShouldRender(true);
+      setTimeout(() => setIsOpen(true), 10);
+    } else {
+      setIsOpen(false);
+      setTimeout(() => setShouldRender(false), 100);
+    }
+  };
 
   return (
     <div className='comment-kebab-container'>
@@ -12,13 +21,14 @@ const KebabMenu = ({ openEdit, onDelete, id }) => {
         ⋮
       </button>
 
-      {isOpen && (
-        <ul className='kebab-dropdown'>
+      {shouldRender && (
+        <ul className={`kebab-dropdown ${isOpen ? 'show' : ''}`}>
           <li
             className='kebab-dropdown-option option-top'
             onClick={() => {
               openEdit();
               setIsOpen(false);
+              setTimeout(() => setShouldRender(false), 200);
             }}
           >
             수정하기
@@ -28,6 +38,7 @@ const KebabMenu = ({ openEdit, onDelete, id }) => {
             onClick={() => {
               onDelete(id);
               setIsOpen(false);
+              setTimeout(() => setShouldRender(false), 200);
             }}
           >
             삭제하기
