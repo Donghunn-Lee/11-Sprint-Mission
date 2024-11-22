@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import './KebabMenu.css';
 
-const KebabMenu = ({ openEdit, onDelete, id }) => {
+interface KebabMenuProps {
+  openEdit: () => void;
+  onDelete: (id: number) => void;
+  id: number;
+}
+
+const KebabMenu = ({ openEdit, onDelete, id }:KebabMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
 

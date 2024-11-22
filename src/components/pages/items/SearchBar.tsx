@@ -1,17 +1,21 @@
 import { useState } from "react";
 
-function SearchBar({ onSearch }) {
-  const [keyword, setKeyword] = useState('');
+interface SearchBarProps {
+  onSearch: (keyword: string) => void;
+}
 
-  const handleInputChange = (e) => {
+function SearchBar({ onSearch }: SearchBarProps) {
+  const [keyword, setKeyword] = useState<string>('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       onSearch(keyword);
     }
-  }
+  };
 
   return (
     <div className="search-container">

@@ -17,8 +17,8 @@ function LoginPage() {
               text="이메일"
               placeholder="이메일을 입력해주세요"
             />
-            <InputPassword placeholder="비밀번호를 입력해주세요" />
-            <button disabled="true" className="auth-btn" type="button">
+            <InputPassword placeholder="비밀번호를 입력해주세요" type='password' />
+            <button disabled className="auth-btn" type="button">
               로그인
             </button>
           </form>

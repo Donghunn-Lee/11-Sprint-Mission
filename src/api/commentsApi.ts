@@ -6,9 +6,19 @@ const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
 };
 
-export async function createComment(productId, commentData) {
+interface Comment {
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export async function createComment(
+  productId: number,
+  commentData: string
+): Promise<Comment | undefined> {
   try {
-    const response = await axios.post(
+    const response = await axios.post<Comment>(
       `${BASE_URL}/products/${productId}/comments`,
       { content: commentData },
       { headers: DEFAULT_HEADERS }
@@ -19,25 +29,34 @@ export async function createComment(productId, commentData) {
   }
 }
 
-export async function getCommentsByProductId(id, limit = 1000) {
+export async function getCommentsByProductId(
+  id: number,
+  limit = 1000
+): Promise<Comment[] | undefined> {
   const params = {
-    limit: limit,
+    limit,
   };
 
   try {
-    const response = await axios.get(`${BASE_URL}/products/${id}/comments`, {
-      headers: DEFAULT_HEADERS,
-      params: params,
-    });
+    const response = await axios.get<{ list: Comment[] }>(
+      `${BASE_URL}/products/${id}/comments`,
+      {
+        headers: DEFAULT_HEADERS,
+        params,
+      }
+    );
     return response.data.list;
   } catch (error) {
-    console.error('Error fetching products:', error);
+    console.error('Error fetching comments:', error);
   }
 }
 
-export async function updateCommentById(commentId, updatedData) {
+export async function updateCommentById(
+  commentId: number,
+  updatedData: string
+): Promise<Comment | undefined> {
   try {
-    const response = await axios.patch(
+    const response = await axios.patch<Comment>(
       `${BASE_URL}/comments/${commentId}`,
       { content: updatedData },
       { headers: DEFAULT_HEADERS }
@@ -48,7 +67,7 @@ export async function updateCommentById(commentId, updatedData) {
   }
 }
 
-export async function deleteCommentById(commentId) {
+export async function deleteCommentById(commentId: number): Promise<boolean> {
   try {
     const response = await axios.delete(`${BASE_URL}/comments/${commentId}`, {
       headers: DEFAULT_HEADERS,
@@ -56,5 +75,6 @@ export async function deleteCommentById(commentId) {
     return response.status === 204;
   } catch (error) {
     console.error('Error deleting comment:', error);
+    return false;
   }
 }
