@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import Header from '../../common/home/Header';
+import Header from '@common/home/Header';
 import Hero from './Hero';
 import Content from './Content';
 import HomeFooter from './HomeFooter';
-import '../../../styles/home-page.css';
+import '@styles/home-page.css';
 
 function HomePage() {
   return (

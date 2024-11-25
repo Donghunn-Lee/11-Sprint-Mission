@@ -13,7 +13,19 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": "./",
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@utils*": ["src/utils"],
+      "@common/*": ["src/components/common/*"],
+      "@pages/*": ["src/components/pages/*"],
+      "@styles/*": ["src/styles/*"],
+      "@constant": ["src/constant"],
+      "@utills": ["src/utills"],
+      "@apptypes/*": ["src/types/*"],
+      "@root/*": ["src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

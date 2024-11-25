@@ -1,4 +1,4 @@
-import { renderLines } from '../../../utills';
+import { renderLines } from "@utills";
 
 interface ContentProps {
   title: string;

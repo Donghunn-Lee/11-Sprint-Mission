@@ -1,12 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState, useCallback } from 'react';
-import { getProductById } from '../../../api/productsApi';
+import { getProductById } from '@api/productsApi';
 import {
   createComment,
   deleteCommentById,
   getCommentsByProductId,
-} from '../../../api/commentsApi';
-import Header from '../../common/home/Header';
+} from '@api/commentsApi';
+import Header from '@common/home/Header';
 import AddItemTag from '../additem/AddItemTag';
 import CommentBox from './CommentBox';
 import './ProductDetail.css';

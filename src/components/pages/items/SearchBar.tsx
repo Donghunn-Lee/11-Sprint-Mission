@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 interface SearchBarProps {
   onSearch: (keyword: string) => void;
@@ -18,17 +18,17 @@ function SearchBar({ onSearch }: SearchBarProps) {
   };
 
   return (
-    <div className="search-container">
+    <div className='search-container'>
       <img
-        className="search-icon"
-        src="images/icons/ic_search.svg"
-        alt="검색 아이콘"
+        className='search-icon'
+        src='images/icons/ic_search.svg'
+        alt='검색 아이콘'
       />
       <input
-        className="search-input"
-        type="text"
+        className='search-input'
+        type='text'
         value={keyword}
-        placeholder="검색할 상품을 입력해주세요"
+        placeholder='검색할 상품을 입력해주세요'
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />

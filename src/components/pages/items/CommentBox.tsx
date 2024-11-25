@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { getTimeDifference } from '../../../utills';
-import { updateCommentById } from '../../../api/commentsApi';
+import { getTimeDifference } from '@utills';
+import { updateCommentById } from '@api/commentsApi';
+import { DEFAULT_PROFILE_IMAGE } from '@constant';
 import KebabMenu from './KebabMenu';
 import './CommentBox.css';
 
@@ -62,7 +63,7 @@ function CommentBox({ comment, onDelete }: CommentBoxProps) {
       <div className='comment-writer-container'>
         <img
           className='comment-writer-image'
-          src={writer?.image ? writer?.image : '/images/icons/ic_mypage.svg'}
+          src={writer?.image || DEFAULT_PROFILE_IMAGE}
           alt='댓글 작성자 프로필 이미지'
         />
         <div className='comment-edit-btn-wrapper'>

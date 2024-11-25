@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, DEFAULT_HEADERS } from '../constant';
+import { BASE_URL, DEFAULT_HEADERS } from '@root/constant';
 
 interface Comment {
   id: number;

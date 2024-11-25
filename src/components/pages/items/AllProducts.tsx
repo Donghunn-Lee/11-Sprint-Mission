@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Product } from '../../../types/product';
+import type { Product } from '@apptypes/product';
 import SearchBar from './SearchBar';
 import SortDropdown from './SortDropdown';
 import ProductCard from './ProductCard';

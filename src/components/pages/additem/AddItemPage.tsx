@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { DEFAULT_ROW } from '../../../constant';
-import Header from '../../common/home/Header';
+import { DEFAULT_ROW } from '@constant';
+import Header from '@common/home/Header';
 import AddItemImage from './AddItemImage';
 import AddItemInfo from './AddItemInfo';
 import AddItemTag from './AddItemTag';

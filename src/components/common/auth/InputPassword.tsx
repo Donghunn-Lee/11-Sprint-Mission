@@ -1,4 +1,4 @@
-import { InputFieldProps } from '../../../types/forms';
+import { InputFieldProps } from "@apptypes/forms";
 
 function InputPassword({ placeholder }: InputFieldProps) {
   return (
