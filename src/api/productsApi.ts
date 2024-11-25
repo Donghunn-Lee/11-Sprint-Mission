@@ -1,12 +1,6 @@
 import axios from 'axios';
 import { Product, ProductResponse } from '../types/product';
-
-const TOTAL_COUNT = 1000; // 전체에서의 Best상품을 뽑기 위해 첫 렌더링 시 모든 데이터를 요청.
-const BASE_URL = 'https://panda-market-api.vercel.app/products';
-
-const DEFAULT_HEADERS = {
-  'Content-Type': 'application/json',
-};
+import { BASE_URL, DEFAULT_HEADERS, TOTAL_COUNT } from '../constant';
 
 interface FetchProductsParams {
   page?: number;
@@ -19,7 +13,7 @@ async function fetchProducts(
   params: FetchProductsParams
 ): Promise<ProductResponse | undefined> {
   try {
-    const response = await axios.get<ProductResponse>(BASE_URL, {
+    const response = await axios.get<ProductResponse>(`${BASE_URL}/products`, {
       headers: DEFAULT_HEADERS,
       params: params,
     });
@@ -51,11 +45,9 @@ export async function getProducts(
   });
 }
 
-export async function getProductById(
-  id: number
-): Promise<Product | undefined> {
+export async function getProductById(id: number): Promise<Product | undefined> {
   try {
-    const response = await axios.get<Product>(`${BASE_URL}/${id}`, {
+    const response = await axios.get<Product>(`${BASE_URL}/products/${id}`, {
       headers: DEFAULT_HEADERS,
     });
     return response.data;

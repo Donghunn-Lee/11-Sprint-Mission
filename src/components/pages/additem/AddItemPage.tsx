@@ -5,6 +5,7 @@ import AddItemImage from './AddItemImage';
 import AddItemInfo from './AddItemInfo';
 import { useState, useEffect } from 'react';
 import AddItemTag from './AddItemTag';
+import { DEFAULT_ROW } from '../../../constant';
 
 function AddItemPage() {
   const [image, setImage] = useState('');
@@ -28,10 +29,8 @@ function AddItemPage() {
       0 < tags.length
     ) {
       setIsFormValid(true);
-      console.log(11111111);
     } else {
       setIsFormValid(false);
-      console.log(222222);
     }
   }, [productName, description, price, tags]);
 
@@ -79,7 +78,7 @@ function AddItemPage() {
           label='상품 소개'
           name='description'
           placeholder='상품 소개를 입력해주세요'
-          rows={8}
+          rows={DEFAULT_ROW}
           data={description}
           setData={setDescription}
         />

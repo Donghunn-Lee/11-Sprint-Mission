@@ -83,11 +83,11 @@ function ProductDetail() {
   const handleCreateComment = async (
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
-    e.preventDefault(); // 기본 동작 방지
+    e.preventDefault();
     try {
       await createComment(Number(id), newCommentInput);
-      setNewCommentInput(''); // 입력 초기화
-      fetchComments(); // 댓글 목록 갱신
+      setNewCommentInput('');
+      fetchComments();
     } catch (error) {
       console.error('Error creating comment:', error);
     }

@@ -1,10 +1,5 @@
 import axios from 'axios';
-
-const BASE_URL = 'https://panda-market-api.vercel.app';
-
-const DEFAULT_HEADERS = {
-  'Content-Type': 'application/json',
-};
+import { BASE_URL, DEFAULT_HEADERS } from '../constant';
 
 interface Comment {
   id: number;

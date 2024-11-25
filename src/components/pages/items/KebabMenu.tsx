@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './KebabMenu.css';
+import { DEFAULT_DELAY_TIME } from '../../../constant';
 
 interface KebabMenuProps {
   openEdit: () => void;
@@ -7,17 +8,17 @@ interface KebabMenuProps {
   id: number;
 }
 
-const KebabMenu = ({ openEdit, onDelete, id }:KebabMenuProps) => {
+const KebabMenu = ({ openEdit, onDelete, id }: KebabMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
 
   const toggleMenu = () => {
     if (!isOpen) {
       setShouldRender(true);
-      setTimeout(() => setIsOpen(true), 10);
+      setTimeout(() => setIsOpen(true), DEFAULT_DELAY_TIME);
     } else {
       setIsOpen(false);
-      setTimeout(() => setShouldRender(false), 100);
+      setTimeout(() => setShouldRender(false), DEFAULT_DELAY_TIME);
     }
   };
 
@@ -34,7 +35,7 @@ const KebabMenu = ({ openEdit, onDelete, id }:KebabMenuProps) => {
             onClick={() => {
               openEdit();
               setIsOpen(false);
-              setTimeout(() => setShouldRender(false), 200);
+              setTimeout(() => setShouldRender(false), DEFAULT_DELAY_TIME);
             }}
           >
             수정하기

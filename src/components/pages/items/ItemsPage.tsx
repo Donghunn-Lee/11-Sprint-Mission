@@ -8,8 +8,7 @@ import { getAllProducts, getProducts } from '../../../api/productsApi';
 import { getPageLimit, useResize } from '../../../utills';
 import Header from '../../common/home/Header';
 import { Product, ProductResponse } from '../../../types/product';
-
-// **API 응답 데이터 타입 정의**
+import { DEFAULT_BEST_PRODUCT_COUNT } from '../../../constant';
 
 function ItemsPage() {
   const [products, setProducts] = useState<Product[] | undefined>([]);
@@ -37,7 +36,7 @@ function ItemsPage() {
 
       if (productData) {
         productData.sort((a, b) => b.favoriteCount - a.favoriteCount);
-        setBestProduct(productData.slice(0, 4));
+        setBestProduct(productData.slice(0, DEFAULT_BEST_PRODUCT_COUNT));
       }
     }
 
