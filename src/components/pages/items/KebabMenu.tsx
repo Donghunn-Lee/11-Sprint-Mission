@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './KebabMenu.css';
 import { DEFAULT_DELAY_TIME } from '../../../constant';
+import './KebabMenu.css';
 
 interface KebabMenuProps {
   openEdit: () => void;

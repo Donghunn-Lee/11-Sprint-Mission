@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { getTimeDifference } from '../../../utills';
-import './CommentBox.css';
-import KebabMenu from './KebabMenu';
 import { updateCommentById } from '../../../api/commentsApi';
+import KebabMenu from './KebabMenu';
+import './CommentBox.css';
 
 interface CommentBoxProps {
   comment: {

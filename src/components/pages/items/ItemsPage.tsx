@@ -1,14 +1,14 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import '../../../styles/items.css';
+import { getAllProducts, getProducts } from '../../../api/productsApi';
+import { getPageLimit, useResize } from '../../../utills';
+import { Product, ProductResponse } from '../../../types/product';
+import { DEFAULT_BEST_PRODUCT_COUNT } from '../../../constant';
+import Header from '../../common/home/Header';
 import BestProducts from './BestProducts';
 import AllProducts from './AllProducts';
 import PageNavigation from './PageNavigation';
-import { getAllProducts, getProducts } from '../../../api/productsApi';
-import { getPageLimit, useResize } from '../../../utills';
-import Header from '../../common/home/Header';
-import { Product, ProductResponse } from '../../../types/product';
-import { DEFAULT_BEST_PRODUCT_COUNT } from '../../../constant';
+import '../../../styles/items.css';
 
 function ItemsPage() {
   const [products, setProducts] = useState<Product[] | undefined>([]);

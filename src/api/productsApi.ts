@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { Product, ProductResponse } from '../types/product';
 import { BASE_URL, DEFAULT_HEADERS, TOTAL_COUNT } from '../constant';
+import { Product, ProductResponse } from '../types/product';
 
 interface FetchProductsParams {
   page?: number;

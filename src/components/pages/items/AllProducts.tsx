@@ -1,9 +1,9 @@
 import { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { Product } from '../../../types/product';
 import SearchBar from './SearchBar';
 import SortDropdown from './SortDropdown';
 import ProductCard from './ProductCard';
-import { Product } from '../../../types/product';
 
 interface AllProductsProps {
   products: Product[] | undefined;

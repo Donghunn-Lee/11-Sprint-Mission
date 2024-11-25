@@ -1,9 +1,9 @@
-import InputField from '../../common/auth/InputField';
-import LoginOption from '../../common/auth/LoginOption';
-import InputPassword from '../../common/auth/InputPassword';
-import AuthLogo from '../../common/auth/AuthLogo';
-import '../../../styles/auth.css';
 import { Link } from 'react-router-dom';
+import AuthLogo from '../../common/auth/AuthLogo';
+import InputField from '../../common/auth/InputField';
+import InputPassword from '../../common/auth/InputPassword';
+import LoginOption from '../../common/auth/LoginOption';
+import '../../../styles/auth.css';
 
 function LoginPage() {
   return (

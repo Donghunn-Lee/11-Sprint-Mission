@@ -1,15 +1,15 @@
 import { useParams, Link } from 'react-router-dom';
-import Header from '../../common/home/Header';
 import { useEffect, useState, useCallback } from 'react';
 import { getProductById } from '../../../api/productsApi';
-import './ProductDetail.css';
-import AddItemTag from '../additem/AddItemTag';
 import {
   createComment,
   deleteCommentById,
   getCommentsByProductId,
 } from '../../../api/commentsApi';
+import Header from '../../common/home/Header';
+import AddItemTag from '../additem/AddItemTag';
 import CommentBox from './CommentBox';
+import './ProductDetail.css';
 
 export interface Product {
   id: number;
@@ -30,7 +30,7 @@ export interface Comment {
 }
 
 function ProductDetail() {
-  const { id } = useParams<{ id: string }>(); // URL 파라미터 타입
+  const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -39,7 +39,7 @@ function ProductDetail() {
   const fetchComments = useCallback(async () => {
     try {
       const data = await getCommentsByProductId(Number(id));
-      setComments(data || []); // undefined 처리
+      setComments(data || []);
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
@@ -130,7 +130,7 @@ function ProductDetail() {
         <div className='product-detail-content'>
           <img
             className='product-detail-image'
-            src={product.images?.[0] || '/images/default.png'} // 기본 이미지 처리
+            src={product.images?.[0] || '/images/default.png'}
             alt={product.name}
           />
           <div className='product-detail-info-wrapper'>

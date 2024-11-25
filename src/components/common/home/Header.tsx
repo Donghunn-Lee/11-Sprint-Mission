@@ -1,6 +1,6 @@
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import { ReactNode } from 'react';
 
 interface HeaderProps {
   leftMenu: ReactNode;
