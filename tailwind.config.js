@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Pretendard'],
+      },
       colors: {
         blue: {
           500: '#3692ff',
