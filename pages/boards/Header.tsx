@@ -7,10 +7,10 @@ type HeaderProps = {
 
 export default function Header({ option: options }: HeaderProps) {
   return (
-    <header className='flex justify-between items-center h-16 px-4 border-b border-gray-150'>
-      <div className='flex space-x-2'>
+    <header className='flex justify-between items-center h-16 px-4 sm:px-6 border-b border-gray-150 lg:px-48'>
+      <div className='flex space-x-2 lg:space-x-6'>
         <Link href='/' passHref>
-          <div className='block md:hidden'>
+          <div className='block lg:hidden'>
             <Image
               src={'/images/logos/logo-mobile.svg'}
               alt='로고 이미지'
@@ -18,7 +18,7 @@ export default function Header({ option: options }: HeaderProps) {
               height={28}
             />
           </div>
-          <div className='hidden md:block'>
+          <div className='hidden lg:block'>
             <Image
               src='/images/logos/logo.svg'
               alt='로고 이미지'
@@ -29,7 +29,7 @@ export default function Header({ option: options }: HeaderProps) {
         </Link>
 
         {options && (
-          <nav className='flex space-x-2 items-center'>
+          <nav className='flex space-x-2 lg:space-x-6 items-center'>
             {options.map((option, index) => (
               <Link key={index} href={option.href}>
                 <p className='text-gray-700 hover:text-blue-500 font-[700]'>
