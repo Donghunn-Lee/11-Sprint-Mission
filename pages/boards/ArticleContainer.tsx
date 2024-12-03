@@ -8,7 +8,7 @@ export default function ArticleContainer({
   articles: article[];
 }) {
   return (
-    <section className=''>
+    <section className='space-y-4'>
       <div className='flex justify-between'>
         <p className='text-lg font-[700]'>게시글</p>
         <button>글쓰기</button>
