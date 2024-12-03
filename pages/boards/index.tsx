@@ -6,7 +6,7 @@ import ArticleContainer from './ArticleContainer';
 
 export default function BoardsPage() {
   const [bestArticles, setBestArticles] = useState([]);
-  const [Articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState([]);
   const BEST_ARTICLE_SIZE = 4;
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export default function BoardsPage() {
 
     async function fetchArticles() {
       const response = await getArticles();
+      console.log(response);
       setArticles(response);
     }
 
@@ -34,8 +35,8 @@ export default function BoardsPage() {
       />
 
       <main className='px-4 space-y-4'>
-        <BestArticleContainer bestArticles={bestArticles.slice(0, 1)} />
-        <ArticleContainer />
+        <BestArticleContainer bestArticles={bestArticles?.slice(0, 1)} />
+        <ArticleContainer articles={articles} />
       </main>
     </>
   );

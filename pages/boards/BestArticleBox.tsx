@@ -2,13 +2,9 @@ import { article } from '@/types';
 import { formatDate } from '@/utills';
 import Image from 'next/image';
 
-interface BestArticleBoxProps {
-  article: article;
-}
-
-export default function BestArticleBox({ article }: BestArticleBoxProps) {
+export default function BestArticleBox({ article }: { article: article }) {
   return (
-    <section className='space-y-4'>
+    <section className='space-y-4 w-full'>
       <div
         key={article.id}
         className='flex py-0.5 px-6 font-[600] w-24 bg-blue-500 text-white justify-center gap-1 rounded-b-2xl'
@@ -22,16 +18,14 @@ export default function BestArticleBox({ article }: BestArticleBoxProps) {
         Best
       </div>
       <div>
-        <div className='flex'>
-          <p>{article.content}</p>
-          {article.image && (
-            <Image
-              src={article.image}
-              alt='게시글 이미지'
-              width={72}
-              height={72}
-            />
-          )}
+        <div className='flex justify-between'>
+          <p>{article.title}</p>
+          <Image
+            src={article.image || ''}
+            alt='게시글 이미지'
+            width={72}
+            height={72}
+          />
         </div>
         <div className='flex justify-between'>
           <div className='flex space-x-2'>
