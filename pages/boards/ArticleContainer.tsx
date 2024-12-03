@@ -11,7 +11,9 @@ export default function ArticleContainer({
     <section className='space-y-4'>
       <div className='flex justify-between'>
         <p className='text-lg font-[700]'>게시글</p>
-        <button>글쓰기</button>
+        <button className='py-3 px-6 bg-blue-500 text-white rounded-xl font-[600]'>
+          글쓰기
+        </button>
       </div>
 
       <SearchBar />

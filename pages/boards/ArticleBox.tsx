@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export default function ArticleBox({ article }: { article: article }) {
   return (
-    <div className='w-full h-34'>
+    <div className='w-full h-34 space-y-4 pb-6 border-b-2'>
       <div className='flex justify-between'>
-        <p>{article.title}</p>
+        <p className='text-lg font-[600] text-gray-800'>{article.title}</p>
         <Image
           src={article.image || ''}
           alt='게시글 이미지'
@@ -16,24 +16,23 @@ export default function ArticleBox({ article }: { article: article }) {
       </div>
 
       <div className='flex justify-between'>
-        <div className='flex'>
+        <div className='flex space-x-2 text-sm items-center'>
           <Image
             src={'/images/icons/ic_my-page.svg'}
             alt=''
             width={24}
             height={24}
           />
-          <p>{article.writer.nickname}</p>
-
-          <p>{formatDate(article.updatedAt)}</p>
+          <p className='text-gray-600'>{article.writer.nickname}</p>
+          <p className='text-gray-400'>{formatDate(article.updatedAt)}</p>
         </div>
 
-        <div className='flex'>
+        <div className='flex space-x-2'>
           <Image
             src={'/images/icons/ic_heart.svg'}
             alt='좋아요 이미지'
-            width={16}
-            height={16}
+            width={24}
+            height={24}
           />
           <p>{article.likeCount}</p>
         </div>
