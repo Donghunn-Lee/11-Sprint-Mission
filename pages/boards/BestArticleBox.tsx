@@ -17,9 +17,9 @@ export default function BestArticleBox({ article }: { article: article }) {
         />
         Best
       </div>
-      <div>
+      <div className='space-y-10 pb-4'>
         <div className='flex justify-between'>
-          <p>{article.title}</p>
+          <p className='text-lg font-[600] text-gray-800'>{article.title}</p>
           <Image
             src={article.image || ''}
             alt='게시글 이미지'
@@ -27,9 +27,9 @@ export default function BestArticleBox({ article }: { article: article }) {
             height={72}
           />
         </div>
-        <div className='flex justify-between'>
-          <div className='flex space-x-2'>
-            <p>{article.writer.nickname}</p>
+        <div className='flex justify-between text-sm text-gray-400'>
+          <div className='flex space-x-2 items-center'>
+            <p >{article.writer.nickname}</p>
             <div className='flex items-center space-x-1'>
               <Image
                 src={'/images/icons/ic_heart.svg'}
