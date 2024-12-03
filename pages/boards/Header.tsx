@@ -10,7 +10,7 @@ export default function Header({ option: options }: HeaderProps) {
     <header className='flex justify-between items-center h-16 px-4 sm:px-6 border-b border-gray-150 lg:px-48'>
       <div className='flex space-x-2 lg:space-x-6'>
         <Link href='/' passHref>
-          <div className='block lg:hidden'>
+          <div className='block sm:hidden'>
             <Image
               src={'/images/logos/logo-mobile.svg'}
               alt='로고 이미지'
@@ -18,7 +18,7 @@ export default function Header({ option: options }: HeaderProps) {
               height={28}
             />
           </div>
-          <div className='hidden lg:block'>
+          <div className='hidden sm:block'>
             <Image
               src='/images/logos/logo.svg'
               alt='로고 이미지'
