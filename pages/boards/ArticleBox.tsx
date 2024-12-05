@@ -8,7 +8,7 @@ export default function ArticleBox({ article }: { article: article }) {
       <div className='flex justify-between'>
         <p className='text-lg font-[600] text-gray-800'>{article.title}</p>
         <Image
-          src={article.image || ''}
+          src={article.image || '/images/no-image.png'}
           alt='게시글 이미지'
           width={72}
           height={72}

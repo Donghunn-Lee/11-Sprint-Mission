@@ -21,7 +21,7 @@ export default function BestArticleBox({ article }: { article: article }) {
         <div className='flex justify-between space-x-4'>
           <p className='text-lg font-[600] text-gray-800'>{article.title}</p>
           <Image
-            src={article.image || ''}
+            src={article.image || '/images/n-image.png'}
             alt='게시글 이미지'
             width={72}
             height={72}
