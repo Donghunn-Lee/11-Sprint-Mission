@@ -1,9 +1,29 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import DropDown from './DropDown';
 
-export default function SearchBar() {
+interface SearchBarProps {
+  setSearchQuery: Dispatch<SetStateAction<string>>;
+}
+
+export default function SearchBar({ setSearchQuery }: SearchBarProps) {
   const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== 'Enter') {
+      return;
+    }
+
+    if (inputValue === '') {
+      setSearchQuery('');
+    } else {
+      setSearchQuery(inputValue);
+    }
+  };
 
   return (
     <div className='relative flex items-center space-x-2'>
@@ -19,7 +39,8 @@ export default function SearchBar() {
         type='text'
         placeholder='검색할 상품을 입력해주세요'
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={handleChange}
+        onKeyDown={handleSearch}
       />
 
       <DropDown />

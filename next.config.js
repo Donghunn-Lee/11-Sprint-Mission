@@ -2,7 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['sprint-fe-project.s3.ap-northeast-2.amazonaws.com'], // 허용할 외부 도메인 추가
+    domains: ['example.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 };
 
