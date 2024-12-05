@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 type HeaderProps = {
-  option?: { label: string; href: string }[];
+  option?: { label: string; href: string; color?: string }[];
 };
 
 export default function Header({ option: options }: HeaderProps) {
@@ -32,7 +32,7 @@ export default function Header({ option: options }: HeaderProps) {
           <nav className='flex space-x-2 lg:space-x-6 items-center'>
             {options.map((option, index) => (
               <Link key={index} href={option.href}>
-                <p className='text-gray-700 hover:text-blue-500 font-[700]'>
+                <p className={`${option.color || 'text-gray-700'} font-[700]`}>
                   {option.label}
                 </p>
               </Link>

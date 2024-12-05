@@ -51,7 +51,7 @@ export default function BoardsPage() {
     <>
       <Header
         option={[
-          { label: '자유게시판', href: '/board' },
+          { label: '자유게시판', href: '/board', color: 'text-blue-500' },
           { label: '중고마켓', href: '/items' },
         ]}
       />
