@@ -46,7 +46,7 @@ export default function DropDown({ sort, setSort }: DropDownProps) {
       </div>
 
       {isOpen && (
-        <div className='absolute right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg text-center'>
+        <div className='absolute w-24 sm:w-full right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg text-center'>
           <div
             className='px-4 py-2 hover:bg-gray-100 cursor-pointer'
             onClick={() => handleOptionClick('recent')}
