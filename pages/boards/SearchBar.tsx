@@ -1,12 +1,19 @@
 import Image from 'next/image';
 import { Dispatch, SetStateAction, useState } from 'react';
 import DropDown from './DropDown';
+import { sort } from '@/types';
 
 interface SearchBarProps {
   setSearchQuery: Dispatch<SetStateAction<string>>;
+  sort: sort;
+  setSort: Dispatch<SetStateAction<sort>>;
 }
 
-export default function SearchBar({ setSearchQuery }: SearchBarProps) {
+export default function SearchBar({
+  setSearchQuery,
+  sort,
+  setSort,
+}: SearchBarProps) {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +50,7 @@ export default function SearchBar({ setSearchQuery }: SearchBarProps) {
         onKeyDown={handleSearch}
       />
 
-      <DropDown />
+      <DropDown sort={sort} setSort={setSort} />
     </div>
   );
 }

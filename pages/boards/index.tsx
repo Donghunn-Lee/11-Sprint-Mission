@@ -4,12 +4,13 @@ import Header from './Header';
 import { getArticles } from '../api/ArticleApi';
 import ArticleContainer from './ArticleContainer';
 import SearchBar from './SearchBar';
+import { sort } from '@/types';
 
 export default function BoardsPage() {
   const [bestArticles, setBestArticles] = useState([]);
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
-  const [sort, setSort] = useState('recent');
+  const [sort, setSort] = useState<sort>('recent');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isSearching, setIsSearching] = useState<Boolean>(false);
   const [hasMore, setHasMore] = useState(true);
@@ -26,7 +27,7 @@ export default function BoardsPage() {
 
   const fetchArticles = useCallback(async () => {
     if (searchQuery === '') {
-      const response = await getArticles({});
+      const response = await getArticles({ orderBy: sort });
       setArticles(response);
       return;
     }
@@ -58,7 +59,11 @@ export default function BoardsPage() {
       <main className='px-4 lg:max-w-fit sm:px-6 space-y-4 sm:space-y-6 lg:mx-auto'>
         <BestArticleContainer bestArticles={bestArticles} />
         <ArticleContainer articles={articles}>
-          <SearchBar setSearchQuery={setSearchQuery} />
+          <SearchBar
+            setSearchQuery={setSearchQuery}
+            sort={sort}
+            setSort={setSort}
+          />
         </ArticleContainer>
       </main>
     </>

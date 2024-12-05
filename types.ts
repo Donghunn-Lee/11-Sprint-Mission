@@ -7,3 +7,5 @@ export interface article {
   likeCount: number;
   updatedAt: string;
 }
+
+export type sort = 'recent' | 'like';
