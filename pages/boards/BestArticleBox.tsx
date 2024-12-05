@@ -1,6 +1,7 @@
+import Image from 'next/image';
+
 import { article } from '@/types';
 import { formatDate } from '@/utills';
-import Image from 'next/image';
 
 export default function BestArticleBox({ article }: { article: article }) {
   return (

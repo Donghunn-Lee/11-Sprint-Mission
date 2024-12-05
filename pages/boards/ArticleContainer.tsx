@@ -1,7 +1,8 @@
-import { article } from '@/types';
-import SearchBar from './SearchBar';
-import ArticleBox from './ArticleBox';
 import { ReactNode } from 'react';
+
+import { article } from '@/types';
+
+import ArticleBox from './ArticleBox';
 
 export default function ArticleContainer({
   children,

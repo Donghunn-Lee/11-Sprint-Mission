@@ -1,4 +1,5 @@
 import { article } from '@/types';
+
 import BestArticleBox from './BestArticleBox';
 
 export default function BestArticleContainer({

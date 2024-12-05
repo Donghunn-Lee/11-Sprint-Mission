@@ -1,9 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import BestArticleContainer from './BestArticleContainer';
-import Header from './Header';
-import { getArticles } from '../api/ArticleApi';
-import ArticleContainer from './ArticleContainer';
-import SearchBar from './SearchBar';
+
+import { getArticles } from '@api/ArticleApi';
 import { sort } from '@/types';
 import {
   ARTICLES_PER_MOBILE_PAGE,
@@ -11,6 +8,11 @@ import {
   BEST_ARTICLE_SIZE,
 } from '@/constants';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+
+import BestArticleContainer from './BestArticleContainer';
+import Header from './Header';
+import ArticleContainer from './ArticleContainer';
+import SearchBar from './SearchBar';
 
 export default function BoardsPage() {
   const isMobile = useMediaQuery('(max-width: 640px)');

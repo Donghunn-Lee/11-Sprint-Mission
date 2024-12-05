@@ -1,6 +1,7 @@
-import { sort } from '@/types';
 import Image from 'next/image';
 import { Dispatch, SetStateAction, useState } from 'react';
+
+import { sort } from '@/types';
 
 interface DropDownProps {
   sort: sort;

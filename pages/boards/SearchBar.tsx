@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import { Dispatch, SetStateAction, useState } from 'react';
-import DropDown from './DropDown';
+
 import { sort } from '@/types';
+
+import DropDown from './DropDown';
 
 interface SearchBarProps {
   setSearchQuery: Dispatch<SetStateAction<string>>;
