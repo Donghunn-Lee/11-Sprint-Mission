@@ -5,17 +5,21 @@ import { getArticles } from '../api/ArticleApi';
 import ArticleContainer from './ArticleContainer';
 import SearchBar from './SearchBar';
 import { sort } from '@/types';
+import {
+  ARTICLES_PER_MOBILE_PAGE,
+  ARTICLES_PER_DESCKTOP_PAGE,
+  BEST_ARTICLE_SIZE,
+} from '@/constants';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function BoardsPage() {
+  const isMobile = useMediaQuery('(max-width: 640px)');
   const [bestArticles, setBestArticles] = useState([]);
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState<sort>('recent');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [isSearching, setIsSearching] = useState<Boolean>(false);
   const [hasMore, setHasMore] = useState(true);
-  const BEST_ARTICLE_SIZE = 3;
-  const ARTICLES_PER_PAGE = 10;
 
   const fetchBestArticles = useCallback(async () => {
     const response = await getArticles({
@@ -23,24 +27,31 @@ export default function BoardsPage() {
       orderBy: 'like',
     });
     setBestArticles(response);
-  }, [BEST_ARTICLE_SIZE]);
+  }, []);
 
   const fetchArticles = useCallback(async () => {
+    const pageSize = isMobile
+      ? ARTICLES_PER_MOBILE_PAGE
+      : ARTICLES_PER_DESCKTOP_PAGE;
+
     if (searchQuery === '') {
-      const response = await getArticles({ orderBy: sort });
+      const response = await getArticles({
+        pageSize,
+        orderBy: sort,
+      });
       setArticles(response);
       return;
     }
 
     const response = await getArticles({
-      page: page,
-      pageSize: ARTICLES_PER_PAGE,
+      page,
+      pageSize,
       orderBy: sort,
       keyword: searchQuery,
     });
 
     setArticles(response);
-  }, [page, sort, searchQuery]);
+  }, [page, sort, searchQuery, isMobile]);
 
   useEffect(() => {
     fetchBestArticles();
